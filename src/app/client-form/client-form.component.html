@@ -1,0 +1,39 @@
+<form (ngSubmit)="onSubmit()" class="client-form">
+  <div class="form-group">
+    <label for="firstName">First Name: </label>
+    <input type="text" id="firstName" required [(ngModel)]="client.firstName" name="firstName" />
+  </div>
+  <div class="form-group">
+    <label for="middleName">Middle Name: </label>
+    <input type="text" id="middleName" required [(ngModel)]="client.middleName" name="middleName" />
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name: </label>
+    <input type="text" id="lastName" required [(ngModel)]="client.lastName" name="lastName" />
+  </div>
+  <div class="form-group">
+    <label for="secondLastName">Second Last Name: </label>
+    <input type="text" id="secondLastName" required [(ngModel)]="client.secondLastName" name="secondLastName" />
+  </div>
+  <div class="form-group">
+    <label for="contactNumber">Contact Number: </label>
+    <input type="text" id="contactNumber" required [(ngModel)]="client.contactNumber" name="contactNumber" />
+  </div>
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input type="email" id="email" required [(ngModel)]="client.email" name="email" />
+  </div>
+  <div class="form-group">
+    <label for="dateOfBirth">Date of Birth: </label>
+    <input type="date" id="dateOfBirth" required [(ngModel)]="client.dateOfBirth" name="dateOfBirth" />
+  </div>
+  <div class="form-group">
+    <label for="estimatedInsuranceValue">Estimated Insurance Value: </label>
+    <input type="number" id="estimatedInsuranceValue" required [(ngModel)]="client.estimatedInsuranceValue" name="estimatedInsuranceValue" />
+  </div>
+  <div class="form-group">
+    <label for="notes">Notes: </label>
+    <input type="text" id="notes" required [(ngModel)]="client.notes" name="identification" />
+  </div>
+  <button type="submit" [disabled]="!isFormValid()" class="submit-button">Save</button>
+</form>

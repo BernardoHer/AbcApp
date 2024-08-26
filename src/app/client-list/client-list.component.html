@@ -1,0 +1,30 @@
+<a [routerLink]="['/client-form']" class="action-link" >Add</a>
+<table class="client-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>Contact number</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (client of clients; track $index) {
+    <tr>
+      <td><a [routerLink]="['/client-form', client.id]" class="action-link" >Update</a></td>
+      <td>{{client.id}}</td>
+      <td>{{client.firstName}}
+        {{client.lastName}}</td>
+      <td>{{client.contactNumber}}</td>
+      <td>{{client.email}}</td>
+      <td>
+        
+        <button (click)="deleteClient(client.id || 0)" class="delete-button" >Delete</button>
+      </td>
+    </tr>
+    }
+
+  </tbody>
+</table>
