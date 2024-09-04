@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ClientService } from '../services/client.service';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 const clientState = {
   id: 0,
     firstName: '',
@@ -25,7 +25,7 @@ const clientState = {
 export class ClientFormComponent {
 
   public client = { ...clientState};
-  constructor(private clientsServices: ClientService, private route: ActivatedRoute,) { }
+  constructor(private clientsServices: ClientService, private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
     const clientId = this.route.snapshot.paramMap.get('clientId');
@@ -43,7 +43,8 @@ export class ClientFormComponent {
 
   registerClient() {
     this.clientsServices.createClient(this.client).subscribe(response => {
-      this.client = {...clientState}
+      this.client = {...clientState};
+      this.router.navigate(['/client-list']);
     }, error => {
       alert('error register');
     });
@@ -58,7 +59,8 @@ export class ClientFormComponent {
 
   updateClient() {
     this.clientsServices.updateClient(this.client.id, this.client).subscribe(response => {
-      this.client = {...clientState}
+      this.client = {...clientState};
+      this.router.navigate(['/client-list']);
     }, error => {
       alert('error register');
     });
