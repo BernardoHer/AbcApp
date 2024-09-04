@@ -1,4 +1,5 @@
 <a [routerLink]="['/client-form']" class="action-link" >Add</a>
+<input type="number" [(ngModel)]="clientId" (ngModelChange)="findClient()" placeholder="Filter by ID">
 <table class="client-table">
   <thead>
     <tr>

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Client, ClientService } from '../services/client.service';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-client-list',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.scss'
 })
@@ -30,7 +31,7 @@ export class ClientListComponent {
   findClient() {
     if (this.clientId) {
       this.clientService.getClientById(this.clientId).subscribe(data => {
-        this.clientId = data.id || 0;
+        this.clients = data ? [data] : []; 
       });
     } else {
       this.getclients();
