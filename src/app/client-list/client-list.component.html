@@ -1,5 +1,8 @@
+<div class="header-container">
+  <h2>ABC Seguros App</h2>
+</div>
 <a [routerLink]="['/client-form']" class="action-link" >Add</a>
-<input type="number" [(ngModel)]="clientId" (ngModelChange)="findClient()" placeholder="Filter by ID">
+<input type="number" [(ngModel)]="clientId" (ngModelChange)="findClient()" placeholder="Filter by ID" class="client-filter">
 <table class="client-table">
   <thead>
     <tr>
@@ -8,18 +11,22 @@
       <th>Full Name</th>
       <th>Contact number</th>
       <th>Email</th>
+      <th>Estimated Insurance Value</th>
+      <th>Notes</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     @for (client of clients; track $index) {
     <tr>
-      <td><a [routerLink]="['/client-form', client.id]" class="action-link" >Update</a></td>
+      <td><a [routerLink]="['/client-form', client.id]" class="action-link" >Edit</a></td>
       <td>{{client.id}}</td>
       <td>{{client.firstName}}
         {{client.lastName}}</td>
       <td>{{client.contactNumber}}</td>
       <td>{{client.email}}</td>
+      <td>{{client.estimatedInsuranceValue}}</td>
+      <td>{{client.notes}}</td>
       <td>
         
         <button (click)="deleteClient(client.id || 0)" class="delete-button" >Delete</button>
