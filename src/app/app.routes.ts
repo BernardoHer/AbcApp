@@ -4,6 +4,11 @@ import { ClientFormComponent } from './client-form/client-form.component';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'client-list',
+    pathMatch: 'full'
+  },
+  {
     path: 'client-list',
     component: ClientListComponent
   },
